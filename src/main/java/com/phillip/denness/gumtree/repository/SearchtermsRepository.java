@@ -1,15 +1,15 @@
 package com.phillip.denness.gumtree.repository;
 
-import com.phillip.denness.gumtree.domain.Resource;
+import com.phillip.denness.gumtree.domain.Searchterms;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ResourceRepository extends CrudRepository<Resource, Integer> {
+public interface SearchtermsRepository extends CrudRepository<Searchterms, Integer> {
 
     @Override
-    List<Resource> findAll();
+    List<Searchterms> findAll();
 
 }
