@@ -1,7 +1,7 @@
-package com.solirius.journal.Service;
+package com.phillip.denness.gumtree.Service;
 
-import com.solirius.journal.domain.Resource;
-import com.solirius.journal.repository.ResourceRepository;
+import com.phillip.denness.gumtree.domain.Resource;
+import com.phillip.denness.gumtree.repository.ResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

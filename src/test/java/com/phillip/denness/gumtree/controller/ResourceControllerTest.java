@@ -1,8 +1,8 @@
-package com.solirius.journal.controller;
+package com.phillip.denness.gumtree.controller;
 
 
-import com.solirius.journal.Service.ResourceService;
-import com.solirius.journal.domain.Resource;
+import com.phillip.denness.gumtree.Service.ResourceService;
+import com.phillip.denness.gumtree.domain.Resource;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,18 +1,16 @@
-package com.solirius.journal.service;
+package com.phillip.denness.gumtree.service;
 
-import com.solirius.journal.Service.ResourceService;
-import com.solirius.journal.domain.Resource;
-import com.solirius.journal.repository.ResourceRepository;
+import com.phillip.denness.gumtree.Service.ResourceService;
+import com.phillip.denness.gumtree.domain.Resource;
+import com.phillip.denness.gumtree.repository.ResourceRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.StreamSupport;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

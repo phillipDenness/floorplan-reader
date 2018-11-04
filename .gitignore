@@ -91,3 +91,5 @@ gradle-app.setting
 \.idea/modules/
 
 target/
+
+\.idea/

@@ -16,10 +16,10 @@ apply plugin: 'application'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group = 'com.solirius'
+group = 'com.phillip.denness'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
-mainClassName = 'com.solirius.journal.Application'
+mainClassName = 'com.phillip.denness.gumtree.Application'
 
 repositories {
 	mavenCentral()
@@ -52,7 +52,7 @@ dependencies {
 }
 
 bootJar {
-	baseName 'journal'
+	baseName 'gumtree'
 	archiveName = "$baseName"+".jar"
 	destinationDir = file("$rootDir/build/libs")
 	manifest {

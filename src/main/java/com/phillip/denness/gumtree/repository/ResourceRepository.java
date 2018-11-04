@@ -1,6 +1,6 @@
-package com.solirius.journal.repository;
+package com.phillip.denness.gumtree.repository;
 
-import com.solirius.journal.domain.Resource;
+import com.phillip.denness.gumtree.domain.Resource;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

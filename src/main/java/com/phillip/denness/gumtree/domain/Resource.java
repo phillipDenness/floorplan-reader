@@ -1,4 +1,4 @@
-package com.solirius.journal.domain;
+package com.phillip.denness.gumtree.domain;
 
 import javax.persistence.*;
 

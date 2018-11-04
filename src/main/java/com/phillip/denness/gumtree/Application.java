@@ -1,7 +1,6 @@
-package com.solirius.journal;
+package com.phillip.denness.gumtree;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
