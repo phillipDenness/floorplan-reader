@@ -1,6 +1,14 @@
+
+#server:
+#  ssl:
+#    key-store: classpath:server.p12
+#    key-store-password: simplescraperapi
+#    key-store-type: PKCS12
+#    key-alias: pdenness-simple-scraper-api.us-east-1.elasticbeanstalk.com
+#  port: ${SERVER_PORT:5001}
 spring:
   application:
-    name: Gumtree
+    name: SimpleScraperApi
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQL94Dialect
     database: postgresql
@@ -13,7 +21,7 @@ spring:
         temp:
           use_jdbc_metadata_defaults: false
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/gumtree}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/scraper}
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
     password: ${SPRING_DATASOURCE_PASSWORD:postgres}
     platform: postgresql
