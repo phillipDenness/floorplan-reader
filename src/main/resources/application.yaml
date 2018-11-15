@@ -8,7 +8,7 @@
 #  port: ${SERVER_PORT:5001}
 spring:
   application:
-    name: SimpleScraperApi
+    name: floor-plan-scanner
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQL94Dialect
     database: postgresql
@@ -21,7 +21,7 @@ spring:
         temp:
           use_jdbc_metadata_defaults: false
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/scraper}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/floor-plan-scanner}
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
     password: ${SPRING_DATASOURCE_PASSWORD:postgres}
     platform: postgresql

@@ -1,4 +1,4 @@
-package com.phillip.denness.gumtree;
+package com.phillip.denness.fps;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

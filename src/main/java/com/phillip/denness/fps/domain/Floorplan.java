@@ -1,4 +1,4 @@
-package com.phillip.denness.gumtree.domain;
+package com.phillip.denness.fps.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -6,27 +6,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "searchterms")
-public class Searchterms implements Serializable {
+@Table(name = "floorplans")
+public class Floorplan implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "search_terms_id")
-    private Integer searchTermsId;
+    @Column(name = "floorplan_id")
+    private Integer floorplanId;
 
     @Column(name = "search_name")
     private String searchName;
 
     @Column(name = "domain")
     private String domain;
-
-    @ElementCollection
-    @CollectionTable(
-            name="searchterms_tags",
-            joinColumns=@JoinColumn(name = "searchterms_search_terms_id", referencedColumnName = "search_terms_id")
-    )
-    @Column(name = "tag")
-    private Set<String> tags = new HashSet<>();
 
     @ElementCollection
     @CollectionTable(
@@ -48,24 +40,16 @@ public class Searchterms implements Serializable {
         return domain;
     }
 
-    public Set<String> getTags() {
-        return tags;
-    }
-
-    public void setTags(Set<String> tags) {
-        this.tags = tags;
-    }
-
     public void setDomain(String domain) {
         this.domain = domain;
     }
 
-    public Integer getSearchTermsId() {
-        return searchTermsId;
+    public Integer getFloorplanId() {
+        return floorplanId;
     }
 
-    public void setSearchTermsId(Integer searchTermsId) {
-        this.searchTermsId = searchTermsId;
+    public void setFloorplanId(Integer floorplanId) {
+        this.floorplanId = floorplanId;
     }
 
     public Set<String> getKeywords() {
