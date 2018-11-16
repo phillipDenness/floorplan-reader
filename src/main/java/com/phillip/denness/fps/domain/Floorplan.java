@@ -1,78 +1,37 @@
 package com.phillip.denness.fps.domain;
 
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
-@Entity
-@Table(name = "floorplans")
 public class Floorplan implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "floorplan_id")
-    private Integer floorplanId;
+    private String url;
 
-    @Column(name = "search_name")
-    private String searchName;
+    private String[] extactedText;
+    private String totalSquareArea;
 
-    @Column(name = "domain")
-    private String domain;
-
-    @ElementCollection
-    @CollectionTable(
-            name="searchterms_keywords",
-            joinColumns=@JoinColumn(name = "searchterms_search_terms_id", referencedColumnName = "search_terms_id")
-    )
-    @Column(name = "keywords")
-    protected Set<String> keywords = new HashSet();
-
-    @ElementCollection
-    @CollectionTable(
-            name="searchterms_blockwords",
-            joinColumns=@JoinColumn(name = "searchterms_search_terms_id", referencedColumnName = "search_terms_id")
-    )
-    @Column(name = "blockwords")
-    protected Set<String> blockwords = new HashSet();
-
-    public String getDomain() {
-        return domain;
+    public String[] getExtactedText() {
+        return extactedText;
     }
 
-    public void setDomain(String domain) {
-        this.domain = domain;
+    public void setExtactedText(String[] extactedText) {
+        this.extactedText = extactedText;
     }
 
-    public Integer getFloorplanId() {
-        return floorplanId;
+    public String getTotalSquareArea() {
+        return totalSquareArea;
     }
 
-    public void setFloorplanId(Integer floorplanId) {
-        this.floorplanId = floorplanId;
+    public void setTotalSquareArea(String totalSquareArea) {
+        this.totalSquareArea = totalSquareArea;
     }
 
-    public Set<String> getKeywords() {
-        return keywords;
+    public String getUrl() {
+        return url;
     }
 
-    public void setKeywords(Set<String> keywords) {
-        this.keywords = keywords;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public String getSearchName() {
-        return searchName;
-    }
-
-    public void setSearchName(String searchName) {
-        this.searchName = searchName;
-    }
-
-    public Set<String> getBlockwords() {
-        return blockwords;
-    }
-
-    public void setBlockwords(Set<String> blockwords) {
-        this.blockwords = blockwords;
-    }
 }

@@ -28,22 +28,10 @@ repositories {
 	jcenter()
 }
 
-apply from: 'liquibase.gradle'
-
-def versions = [
-		postgresql         : '42.2.2',
-		h2                 : '1.4.197',
-		liquibase          : '3.5.3',
-]
-
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile("org.springframework.boot:spring-boot-starter-web")
-	compile("org.liquibase:liquibase-core:${versions.liquibase}")
-	compile("org.postgresql:postgresql:${versions.postgresql}")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile group: 'junit', name: 'junit', version: '4.12'
-	testCompile("com.h2database:h2:${versions.h2}")
 	compile group: 'net.sourceforge.tess4j', name: 'tess4j', version: '4.3.0'
 
 }
