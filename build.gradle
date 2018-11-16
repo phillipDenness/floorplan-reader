@@ -44,3 +44,6 @@ bootJar {
 		attributes 'Implementation-Title': project.name, 'Implementation-Version': project.version
 	}
 }
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
