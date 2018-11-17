@@ -1,6 +1,5 @@
 package com.phillip.denness.fps.service;
 
-
 import com.phillip.denness.fps.Service.FloorplanService;
 import com.phillip.denness.fps.domain.Floorplan;
 import org.junit.Before;
@@ -9,11 +8,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.net.URISyntaxException;
 
 import static org.junit.Assert.assertThat;
 
+@SpringBootTest
+@RunWith(SpringJUnit4ClassRunner.class)
 public class FloorplanServiceTest {
 
     @Autowired

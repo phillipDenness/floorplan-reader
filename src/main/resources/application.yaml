@@ -1,3 +1,5 @@
 spring:
   application:
-    name: floor-plan-scanner
+    name: floorplan-scanner
+server:
+  port: ${SERVER_PORT:5000}

@@ -1,7 +1,7 @@
 package com.phillip.denness.fps.Service;
 
 import com.phillip.denness.fps.domain.Floorplan;
-import com.phillip.denness.fps.tesseract.TesseractFps;
+import com.phillip.denness.fps.tesseractfp.TesseractFp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class FloorplanService {
     private ImageFetch imageFetch;
 
     @Autowired
-    private TesseractFps tesseractFps;
+    private TesseractFp tesseractFps;
 
     public void processImage(Floorplan floorplan) {
         try {

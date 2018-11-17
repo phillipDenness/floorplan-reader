@@ -1,4 +1,4 @@
-package com.phillip.denness.fps.tesseract;
+package com.phillip.denness.fps.tesseractfp;
 
 import net.sourceforge.tess4j.*;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import java.awt.image.ColorConvertOp;
 import java.io.*;
 
 @Service
-public class TesseractFps {
+public class TesseractFp {
 
     public String[] getImgText(BufferedImage inputStream) {
 
