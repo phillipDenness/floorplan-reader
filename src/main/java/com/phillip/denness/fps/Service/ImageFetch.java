@@ -12,8 +12,7 @@ import java.net.URL;
 @Service
 public class ImageFetch {
 
-    public BufferedImage download(Floorplan floorplan) throws IOException {
-        InputStream in = new URL(floorplan.getUrl()).openStream();
-        return ImageIO.read(in);
+    public InputStream download(Floorplan floorplan) throws IOException {
+        return new URL(floorplan.getUrl()).openStream();
     }
 }

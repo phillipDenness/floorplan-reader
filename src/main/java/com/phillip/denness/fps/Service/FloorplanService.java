@@ -21,7 +21,7 @@ public class FloorplanService {
     public void processImage(Floorplan floorplan) {
         try {
             String[] extractedText = tesseractFps.getImgText(imageFetch.download(floorplan));
-            floorplan.setTotalSquareArea(getTotalSquareArea(extractedText));
+//            floorplan.setTotalSquareArea(getTotalSquareArea(extractedText));
             floorplan.setExtactedText(extractedText);
         } catch (IOException e) {
             e.printStackTrace();
@@ -29,13 +29,11 @@ public class FloorplanService {
     }
 
     public String getTotalSquareArea(String[] extractedText) {
-        List<String> totalSquareAreas = new ArrayList<>();
         for (String line : extractedText) {
             if (line.toLowerCase().contains("sq")) {
-                totalSquareAreas.add(line);
+                return line;
             }
         }
-
-        return totalSquareAreas.get(0);
+        return null;
     }
 }

@@ -1,3 +1,5 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
 buildscript {
 	ext {
 		springBootVersion = '2.0.3.RELEASE'
@@ -28,11 +30,37 @@ repositories {
 	jcenter()
 }
 
+ext {
+
+	if (Os.isFamily(Os.FAMILY_UNIX)) {
+		os = 'linux'
+	}
+	if (Os.isFamily(Os.FAMILY_MAC)) {
+		os = 'macosx'
+	}
+	if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+		os = 'windows'
+	}
+	arch = System.getProperty("os.arch");
+
+	if(arch == 'amd64'){
+		arch = 'x86_64'
+	}
+	opencvBinaryClassifer = os+'-'+arch
+	println opencvBinaryClassifer
+}
+
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile group: 'junit', name: 'junit', version: '4.12'
-	compile group: 'net.sourceforge.tess4j', name: 'tess4j', version: '4.3.0'
+	compile group: 'commons-io', name: 'commons-io', version: '2.4'
+	compile group: 'org.bytedeco.javacpp-presets', name: 'tesseract' + '-platform', version: '4.0.0-rc2-1.4.3'
+//	compile group: 'org.bytedeco.javacpp-presets', name: 'tesseract', version: '4.0.0-rc2-1.4.3', classifier: "windows-x86_64"
+//	compile group: 'org.bytedeco.javacpp-presets', name: 'tesseract', version: '4.0.0-rc2-1.4.3', classifier: opencvBinaryClassifer
+	compile group: 'org.bytedeco.javacpp-presets', name: 'leptonica', version: '1.76.0-1.4.3', classifier: opencvBinaryClassifer
+	compile group: 'jmagick', name: 'jmagick', version: '6.6.9'
+	compile group: 'org.im4java', name: 'im4java', version: '1.4.0'
 
 }
 

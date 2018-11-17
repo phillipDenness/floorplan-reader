@@ -14,8 +14,8 @@ import java.net.URISyntaxException;
 
 import static org.junit.Assert.assertThat;
 
-@SpringBootTest
-@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringBootTest
+//@RunWith(SpringJUnit4ClassRunner.class)
 public class FloorplanServiceTest {
 
     @Autowired
