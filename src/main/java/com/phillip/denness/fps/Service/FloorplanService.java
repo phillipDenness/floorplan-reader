@@ -21,7 +21,7 @@ public class FloorplanService {
     public void processImage(Floorplan floorplan) {
         try {
             String[] extractedText = tesseractFps.getImgText(imageFetch.download(floorplan));
-//            floorplan.setTotalSquareArea(getTotalSquareArea(extractedText));
+            floorplan.setTotalSquareArea(getTotalSquareArea(extractedText));
             floorplan.setExtactedText(extractedText);
         } catch (IOException e) {
             e.printStackTrace();

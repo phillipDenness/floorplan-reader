@@ -1,20 +1,14 @@
 package com.phillip.denness.fps.tesseractfp;
 
+import org.apache.commons.io.IOUtils;
 import org.bytedeco.javacpp.BytePointer;
-import org.bytedeco.javacpp.lept;
-import org.bytedeco.javacpp.tesseract;
 import org.springframework.stereotype.Service;
 
-import java.awt.color.ColorSpace;
-import java.awt.image.BufferedImage;
-import java.awt.image.ColorConvertOp;
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 
 import static org.bytedeco.javacpp.lept.*;
-import static org.bytedeco.javacpp.tesseract.*;
-import static org.bytedeco.javacpp.lept.pixDestroy;
-import static org.bytedeco.javacpp.lept.pixRead;
-import org.apache.commons.io.IOUtils;
+import static org.bytedeco.javacpp.tesseract.TessBaseAPI;
 
 @Service
 public class TesseractFp {
