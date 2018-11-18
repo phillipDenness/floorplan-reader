@@ -2,6 +2,7 @@ package com.phillip.denness.fps.tesseractfp;
 
 import org.apache.commons.io.IOUtils;
 import org.bytedeco.javacpp.BytePointer;
+import org.bytedeco.javacpp.tesseract;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -14,38 +15,43 @@ import static org.bytedeco.javacpp.tesseract.TessBaseAPI;
 public class TesseractFp {
     private TessBaseAPI api;
 
-    public TesseractFp() {
-        api = new TessBaseAPI();
-        if (api.Init("./tessdata", "eng") != 0) {
-            System.err.println("Could not initialize tesseract.");
-            System.exit(1);
-        }
-    }
-
     public String[] getImgText(InputStream inputStream) {
-
-        BytePointer outText;
-
         try {
-            byte[] bytes = new byte[0];
-
-            bytes = IOUtils.toByteArray(inputStream);
-            PIX pix = pixReadMem(bytes, bytes.length);
-            if (pix == null) {
-                throw new IOException("Could not decode image from input stream");
+            api = new TessBaseAPI();
+            if (api.Init("./tessdata", "eng") != 0) {
+                System.err.println("Could not initialize tesseract.");
+                System.exit(1);
             }
-            api.SetImage(pix);
-            outText = api.GetUTF8Text();
-            String string = outText.getString();
-            System.out.println("OCR output:\n" + string);
 
-            // Destroy used object and release memory
-            api.End();
-            outText.deallocate();
-            pixDestroy(pix);
+            BytePointer outText;
+            try {
+                byte[] bytes = new byte[0];
+                bytes = IOUtils.toByteArray(inputStream);
+                PIX pix = pixReadMem(bytes, bytes.length);
+                if (pix == null) {
+                    throw new IOException("Could not decode image from input stream");
+                }
+                api.SetImage(pix);
 
-            return string.split("\\r?\\n");
-        } catch (IOException e) {
+                tesseract.TessBaseAPISetImage2(api, pix);
+                //To remove the warning message "Warning. Invalid resolution 1 dpi. Using 70 instead." Setting the resolution
+                int  res = tesseract.TessBaseAPIGetSourceYResolution(api);
+                if (res < 70)
+                    tesseract.TessBaseAPISetSourceResolution(api, 70);
+
+                outText = api.GetUTF8Text();
+                String string = outText.getString();
+                System.out.println(string);
+                // Destroy used object and release memory
+                api.End();
+                outText.deallocate();
+                pixDestroy(pix);
+
+                return string.split("\\r?\\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

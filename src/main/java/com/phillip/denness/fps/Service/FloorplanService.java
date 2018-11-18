@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.InputStream;
 
 @Service
 public class FloorplanService {
@@ -16,23 +15,47 @@ public class FloorplanService {
     private ImageFetch imageFetch;
 
     @Autowired
-    private TesseractFp tesseractFps;
+    private TesseractFp tesseractFp;
 
     public void processImage(Floorplan floorplan) {
         try {
-            String[] extractedText = tesseractFps.getImgText(imageFetch.download(floorplan));
-            floorplan.setTotalSquareArea(getTotalSquareArea(extractedText));
-            floorplan.setExtactedText(extractedText);
+            InputStream is = imageFetch.download(floorplan);
+            String[] extractedText = tesseractFp.getImgText(is);
+
+            String totalSquareArea = getTotalSquareArea(extractedText);
+
+            floorplan.setTotalSquareArea(totalSquareArea);
+            floorplan.setExtractedText(extractedText);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public String getTotalSquareArea(String[] extractedText) {
-        for (String line : extractedText) {
-            if (line.toLowerCase().contains("sq")) {
-                return line;
+        try {
+            for (String line : extractedText) {
+                line = line.toLowerCase();
+                System.out.println(line);
+                if (line.contains("total") && line.contains("area")) {
+                    return line;
+                }
+                if (line.contains("floor") && line.contains("area")) {
+                    return line;
+                }
+//            }else if (line.contains("total") && line.contains("area")) {
+//                return line;
+//            } else if (line.contains("total")) {
+//                return line;
+//            } else if (line.contains("area")) {
+//                return line;
+//            } else if (line.contains("floor")) {
+//                return line;
+//            } else if (line.contains("sq")) {
+//                return line;
+//            }
             }
+        }catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }

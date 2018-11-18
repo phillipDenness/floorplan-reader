@@ -3,4 +3,4 @@ spring:
     name: floorplan-scanner
 server:
   port: ${SERVER_PORT:5000}
-  connection-timeout: 120
+  connection-timeout: ${SPRING_TIMEOUT:120}

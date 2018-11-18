@@ -1,21 +1,20 @@
 package com.phillip.denness.fps.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class Floorplan implements Serializable {
 
     private String url;
 
-    private String[] extactedText;
+    private String[] extractedText;
     private String totalSquareArea;
 
-    public String[] getExtactedText() {
-        return extactedText;
+    public String[] getExtractedText() {
+        return extractedText;
     }
 
-    public void setExtactedText(String[] extactedText) {
-        this.extactedText = extactedText;
+    public void setExtractedText(String[] extractedText) {
+        this.extractedText = extractedText;
     }
 
     public String getTotalSquareArea() {
